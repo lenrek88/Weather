@@ -47,3 +47,8 @@ const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
 const url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
 
 
+const text = document.querySelector('.text')
+
+
+
+

@@ -41,7 +41,7 @@ main {
 
 .search input {
     height: 45px;
-    width: 599px;
+    width: 550px;
     box-sizing: border-box;
     border: none;
     grid-column: 1/2;
@@ -56,6 +56,11 @@ main {
     font-size: 18px;
     line-height: 21px;
     color: gray;
+}
+
+.search form {
+    height: 45px;
+    width: 49px;
 }
 
 
