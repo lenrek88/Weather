@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Style/style.css">
+</head>
+<body>
+    <main>
+        <div class="weather">
+            <div class="search">
+                <form>
+                    <input type="text" value="Aktobe">
+                </form>
+            </div>
+            <div class="tabs">
+                <div class="tabs_info">
+                    <div class="content_1" id="active">
+                        <h1>14&deg;</h1>
+
+                        <div class="cloud"> </div>
+
+                        <div class="city-like"><h2>Aktobe</h2><button class="like"></button></div>
+                    </div>
+                    <div class="content_2">
+                        <p>Aktobe</p>
+                        <br>
+                        <p>Temperature: 14 &deg;<br>
+                        Feels like: 10 &deg;<br>
+                        Weather: Clouds<br>
+                        Sunrise: 03:21<br>
+                        Sunset: 18:54</p>
+                    </div>
+                    <div class="content_3">
+                        Содержимое 3...
+                    </div>
+                </div>
+                <div class="inputRadio">
+                    <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+                    <label for="tab-btn-1">Now</label>
+                    <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+                    <label for="tab-btn-2">Details</label>
+                    <input type="radio" name="tab-btn" id="tab-btn-3" value="">
+                    <label for="tab-btn-3" id="right">Forecast</label>
+                </div>
+            </div>
+
+            <div class="added-locations">Added Locations:
+            </div>
+            <div class="locations"></div>
+        </div>
+    </main>
+<script src="Script/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+body {
+    background-color: gray;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    width: 621px;
+    height: 462px;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 200px auto;
+    padding-top: 14px;
+    padding-bottom: 13px;
+    padding-left: 12px;
+    padding-right: 9px;
+}
+
+.weather {
+    width: 600px;
+    height: 435px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 45px 68px 322px;
+    grid-template-columns: 298px 302px;
+}
+
+.search {
+    height: 45px;
+    width: 599px;
+    box-sizing: border-box;
+    grid-column: 1/2;
+    grid-row: 1;
+    border-bottom: 1px solid #000000;
+
+}
+
+.search input {
+    height: 45px;
+    width: 599px;
+    box-sizing: border-box;
+    border: none;
+    grid-column: 1/2;
+    grid-row: 1;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid black;
+    outline: none;
+    padding-left: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: gray;
+}
+
+
+.tabs{
+    width: 297px;
+    height: 389px;
+    margin: 0;
+    grid-column: 1;
+    grid-row: 2/3;
+    border-right: 1px solid black;
+}
+
+.inputRadio {
+    display: flex;
+    flex-direction: row;
+}
+
+.tabs_info {
+    width: 297px;
+    height: 345px;
+
+}
+
+.inputRadio>input[type='radio'] {
+    display: none;
+}
+
+.inputRadio>div {
+    border: 1px solid #e0e0e0;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+#tab-btn-1:checked ~ .content_1,
+#tab-btn-2:checked ~ .content_2,
+#tab-btn-3:checked ~ .content_3 {
+    display: block;
+}
+
+.inputRadio>label {
+    text-align: center;
+    width: 99px;
+    height: 44px;
+    vertical-align:middle;
+    user-select: none;
+    background-color: white;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding-top: 6px;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.inputRadio>label:not(:first-of-type) {
+    border-left: none;
+}
+
+.inputRadio>input[type="radio"]:checked+label {
+    background-color: #000000;
+    color: white;
+}
+
+.content_1, .content_2, .content_3 {
+    display: none;
+
+}
+
+
+.content_1#active, .content_2#active, .content_3#active {
+    display: block;
+}
+
+
+.added-locations {
+    padding-top: 33px;
+    padding-left: 18px;
+    box-sizing: border-box;
+    width: 301px;
+    height: 68px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    grid-column: 2;
+    grid-row: 2;
+    border-bottom: 1px solid black;
+
+}
+
+.locations {
+    height: 322px;
+    width: 301px;
+    grid-column: 2;
+    grid-row: 3;
+    box-sizing: border-box;
+}
+
+label#right{
+    border-right: none;
+}
+
+.cloud {
+    background: url(../Style/cloud.svg) no-repeat;
+    width: 78px;
+    height: 59px;
+    margin: 40px auto;
+
+}
+
+h1{
+    font-size: 45px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2{
+    margin-left: 12px;
+   width: 76px;
+    height: 28px;
+}
+
+.city-like {
+    position: relative;
+    margin-top: 80px;
+}
+
+.like {
+    position: absolute;
+    left: 240px;
+    bottom: -5px;
+    background: url(../Style/Shape.svg) no-repeat;
+    height: 30px;
+    width: 30px;
+    border: none;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+.content_2 {
+    padding-top: 33px;
+}
