@@ -47,7 +47,6 @@ main {
     grid-column: 1/2;
     grid-row: 1;
     border-bottom: 1px solid #000000;
-    border-right: 1px solid black;
     outline: none;
     padding-left: 10px;
     font-family: Roboto;
@@ -59,8 +58,19 @@ main {
 }
 
 .search form {
-    height: 45px;
-    width: 49px;
+    margin: 0;
+    display: flex;
+}
+
+.searchBtn {
+    background: url(../Style/Finder.svg) no-repeat;
+    width: 21px;
+    height: 21px;
+    border: none;
+    margin: auto;
+    margin-right: 18px;
+    padding: 0;
+    background-size: cover;
 }
 
 
@@ -182,15 +192,24 @@ label#right{
 }
 
 h1{
-    font-size: 45px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 70px;
+    line-height: 82px;
     margin: 0 auto;
     padding: 20px;
 }
 
 h2{
     margin-left: 12px;
-   width: 76px;
-    height: 28px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #000000;
 }
 
 .city-like {

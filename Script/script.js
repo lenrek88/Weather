@@ -41,13 +41,33 @@ forecast.addEventListener('click', displayOn)
 
 // Запрос погоды
 
-const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
-const cityName = 'boston';
-const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
-const url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
 
 
-const text = document.querySelector('.text')
+
+const searchBtn = document.querySelector('.searchBtn')
+
+searchBtn.addEventListener('click', isSearchButtonHandler)
+
+function isSearchButtonHandler(event) {
+    const searchBtn = document.querySelector('.searchBtn')
+    const thisTemp = document.querySelector('.thisTemp')
+    const thisCity = document.querySelector('.thisCity')
+
+    const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
+    const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+    const cityName = searchBtn.previousElementSibling.value
+    const url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
+
+    event.preventDefault()
+    fetch(url)
+        .then(response => response.json())
+        .then(inf => {
+            let temp = inf.main.temp-273.15;
+            thisTemp.innerHTML = `${Math.floor(temp)} &deg`;
+            thisCity.textContent = cityName;
+    });
+}
+
 
 
 
