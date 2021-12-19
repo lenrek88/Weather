@@ -62,10 +62,15 @@ function isSearchButtonHandler(event) {
     fetch(url)
         .then(response => response.json())
         .then(inf => {
-            let temp = inf.main.temp-273.15;
-            thisTemp.innerHTML = `${Math.floor(temp)} &deg`;
-            thisCity.textContent = cityName;
-    });
+            if (inf.cod === 200) {
+                let temp = inf.main.temp-273.15;
+                thisTemp.innerHTML = `${Math.floor(temp)} &deg`;
+                thisCity.textContent = cityName;
+            } else {
+                alert(inf.message)
+            }
+    })
+    .catch(err => alert(err));
 }
 
 
