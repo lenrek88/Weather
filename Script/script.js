@@ -75,27 +75,27 @@ function isSearchButtonHandler(event) {
                 let feels_like = inf.main.feels_like-273.15;
                 let weather = inf.weather[0].main;
                 if (inf.weather[0].id === 800) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/01d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/01d@2x.png)';
                 } else if (inf.weather[0].id === 801) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/02d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/02d@2x.png)';
                 } else if (inf.weather[0].id === 802) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/03d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/03d@2x.png)';
                 } else if (inf.weather[0].id === 803 || inf.weather[0].id === 804) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/04d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/04d@2x.png)';
                 } else if (inf.weather[0].id > 199 && inf.weather[0].id < 233) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/11d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/11d@2x.png)';
                 } else if (inf.weather[0].id > 299 && inf.weather[0].id < 322) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/09d@2x.png)';
                 } else if (inf.weather[0].id > 499 && inf.weather[0].id < 505) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/10d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/10d@2x.png)';
                 } else if (inf.weather[0].id === 511) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/13d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/13d@2x.png)';
                 } else if (inf.weather[0].id > 519 && inf.weather[0].id < 532) {
-                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                    cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/09d@2x.png)';
                 } else if (inf.weather[0].id > 599 && inf.weather[0].id < 623) {
-                cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/09d@2x.png)';
                 } else if (inf.weather[0].id > 700 && inf.weather[0].id < 782) {
-                cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/50d@2x.png)';
+                cloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/50d@2x.png)';
                 }
                 let sunriseHours = (new Date(inf.sys.sunrise*1000)).getHours() < 10 ? "0" + (new Date(inf.sys.sunrise*1000)).getHours() : (new Date(inf.sys.sunrise*1000)).getHours()
                 let sunsetHours = (new Date(inf.sys.sunset*1000)).getHours() < 10 ? "0" + (new Date(inf.sys.sunset*1000)).getHours() : (new Date(inf.sys.sunset*1000)).getHours()
@@ -198,27 +198,27 @@ function forecastF() {
                 thisCloud.classList.add('thisCloud');
 
                 if (item.weather[0].id === 800) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/01d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/01d@2x.png)';
                 } else if (item.weather[0].id === 801) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/02d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/02d@2x.png)';
                 } else if (item.weather[0].id === 802) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/03d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/03d@2x.png)';
                 } else if (item.weather[0].id === 803 || item.weather[0].id === 804) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/04d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/04d@2x.png)';
                 } else if (item.weather[0].id > 199 && item.weather[0].id < 233) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/11d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/11d@2x.png)';
                 } else if (item.weather[0].id > 299 && item.weather[0].id < 322) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/09d@2x.png)';
                 } else if (item.weather[0].id > 499 && item.weather[0].id < 505) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/10d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/10d@2x.png)';
                 } else if (item.weather[0].id === 511) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/13d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/13d@2x.png)';
                 } else if (item.weather[0].id > 519 && item.weather[0].id < 532) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/09d@2x.png)';
                 } else if (item.weather[0].id > 599 && item.weather[0].id < 623) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/09d@2x.png)';
                 } else if (item.weather[0].id > 700 && item.weather[0].id < 782) {
-                    thisCloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/50d@2x.png)';
+                    thisCloud.style.backgroundImage = 'url(https://openweathermap.org/img/wn/50d@2x.png)';
                 }
 
 
