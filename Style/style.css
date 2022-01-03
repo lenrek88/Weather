@@ -178,6 +178,9 @@ main {
     grid-column: 2;
     grid-row: 3;
     box-sizing: border-box;
+    padding-top: 35px;
+
+    overflow-x: auto;
 }
 
 label#right{
@@ -222,7 +225,7 @@ h1{
     display: flex;
     width: 280px;
     height: 30px;
-    margin-top: 35px;
+    margin-bottom: 15px;
     margin-left: 18px;
 }
 
@@ -253,6 +256,10 @@ h1{
     height: 30px;
     width: 30px;
     border: none;
+}
+
+.likeRed {
+    background: url(../Style/ShapeLike.svg) no-repeat;
 }
 
 p {
