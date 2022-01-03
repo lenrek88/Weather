@@ -10,8 +10,6 @@ function displayOn() {
     let contentDivThree = document.querySelector('.content_3')
 
 
-
-
     switch (this.id){
         case 'tab-btn-1':
             contentDivOne.id = 'active';
@@ -56,7 +54,7 @@ function isSearchButtonHandler(event) {
     const thisCity = document.querySelector('.thisCity');
     const thisCityDetails = document.querySelector('.detailsCity');
 
-    const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
+    const serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
     const cityName = searchBtn.previousElementSibling.value;
@@ -141,7 +139,7 @@ function forecastF() {
     for (elem of deleteDiv) {
         elem.remove();
     }
-    const serverUrl2 = 'http://api.openweathermap.org/data/2.5/forecast';
+    const serverUrl2 = 'https://api.openweathermap.org/data/2.5/forecast';
     const cityName = searchBtn.previousElementSibling.value;
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
     const thisCityDetails = document.querySelector('.detailsCity2');
@@ -241,8 +239,8 @@ function forecastF() {
 
 // Добавление в избранное
 
+let FavoriteCity = [];
 
-let FavoriteCity = ['Moscow'];
 
 
 let counter = 1;
@@ -348,9 +346,15 @@ function isLikeToNow() {
 }
 
 window.onload = function() {
+    let FavoriteCity;
+
     FavoriteCity = JSON.parse(localStorage.getItem('FavoriteCity'));
+    console.log(FavoriteCity)
     searchBtn.previousElementSibling.value = localStorage.getItem('ThisCity');
-    FavoriteCity.forEach((item) => { addFavorite(item); })
+    if (FavoriteCity != null) {
+        FavoriteCity.forEach((item) => { addFavorite(item); })
+
+    }
     isSearchButtonHandler(event);
 
 }
