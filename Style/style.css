@@ -189,9 +189,9 @@ label#right{
 
 .cloud {
     background: url(../Style/cloud.svg) no-repeat;
-    width: 78px;
-    height: 59px;
-    margin: 40px auto;
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
 
 }
 

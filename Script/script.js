@@ -44,32 +44,69 @@ forecast.addEventListener('click', displayOn)
 const likeButton = document.querySelector('.like');
 likeButton.addEventListener('click', isLikeButtonHandler);
 
+const searchBtn = document.querySelector('.searchBtn');
+searchBtn.addEventListener('click', isSearchButtonHandler);
 
-
-const searchBtn = document.querySelector('.searchBtn')
-
-searchBtn.addEventListener('click', isSearchButtonHandler)
+const detailsTemp = document.querySelector('.detailsTemp');
+const cloud = document.querySelector('.cloud')
 
 function isSearchButtonHandler(event) {
-    const searchBtn = document.querySelector('.searchBtn')
-    const thisTemp = document.querySelector('.thisTemp')
-    const thisCity = document.querySelector('.thisCity')
+    const searchBtn = document.querySelector('.searchBtn');
+    const thisTemp = document.querySelector('.thisTemp');
+    const thisCity = document.querySelector('.thisCity');
+    const thisCityDetails = document.querySelector('.detailsCity');
 
     const serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
     const cityName = searchBtn.previousElementSibling.value
+    thisCityDetails.textContent = cityName;
     const url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
 
-    localStorage.setItem('ThisCity', searchBtn.previousElementSibling.value)
+    localStorage.setItem('ThisCity', searchBtn.previousElementSibling.value);
 
-    event.preventDefault()
+    event.preventDefault();
 
     fetch(url)
         .then(response => response.json())
         .then(inf => {
             if (inf.cod === 200) {
                 let temp = inf.main.temp-273.15;
+                let feels_like = inf.main.feels_like-273.15;
+                let weather = inf.weather[0].main;
+                if (inf.weather[0].id === 800) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/01d@2x.png)';
+                } else if (inf.weather[0].id === 801) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/02d@2x.png)';
+                } else if (inf.weather[0].id === 802) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/03d@2x.png)';
+                } else if (inf.weather[0].id === 803 || inf.weather[0].id === 804) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/04d@2x.png)';
+                } else if (inf.weather[0].id > 199 && inf.weather[0].id < 233) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/11d@2x.png)';
+                } else if (inf.weather[0].id > 299 && inf.weather[0].id < 322) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                } else if (inf.weather[0].id > 499 && inf.weather[0].id < 505) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/10d@2x.png)';
+                } else if (inf.weather[0].id === 511) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/13d@2x.png)';
+                } else if (inf.weather[0].id > 519 && inf.weather[0].id < 532) {
+                    cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                } else if (inf.weather[0].id > 599 && inf.weather[0].id < 623) {
+                cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/09d@2x.png)';
+                } else if (inf.weather[0].id > 700 && inf.weather[0].id < 782) {
+                cloud.style.backgroundImage = 'url(http://openweathermap.org/img/wn/50d@2x.png)';
+                }
+                let sunriseHours = (new Date(inf.sys.sunrise*1000)).getHours() < 10 ? "0" + (new Date(inf.sys.sunrise*1000)).getHours() : (new Date(inf.sys.sunrise*1000)).getHours()
+                let sunsetHours = (new Date(inf.sys.sunset*1000)).getHours() < 10 ? "0" + (new Date(inf.sys.sunset*1000)).getHours() : (new Date(inf.sys.sunset*1000)).getHours()
+                let sunriseMinutes = (new Date(inf.sys.sunrise*1000)).getMinutes() < 10 ? "0" + (new Date(inf.sys.sunrise*1000)).getMinutes() : (new Date(inf.sys.sunrise*1000)).getMinutes()
+                let sunsetMinutes = (new Date(inf.sys.sunset*1000)).getMinutes() < 10 ? "0" + (new Date(inf.sys.sunset*1000)).getMinutes() : (new Date(inf.sys.sunset*1000)).getMinutes()
                 thisTemp.innerHTML = `${Math.floor(temp)} &deg`;
+                detailsTemp.innerHTML = `                     
+                     <p class="detailsTemp">Temperature: ${Math.floor(temp)} &deg;<br>
+                        Feels like: ${Math.floor(feels_like)} &deg;<br>
+                        Weather: ${weather}<br>
+                        Sunrise: ${sunriseHours}:${sunriseMinutes}<br>
+                        Sunset: ${sunsetHours}:${sunsetMinutes}</p>`
                 thisCity.textContent = cityName;
             } else {
                 alert(inf.message)
