@@ -60,6 +60,8 @@ function isSearchButtonHandler(event) {
     const cityName = searchBtn.previousElementSibling.value
     const url = `${serverUrl}?q=${cityName}&appid=${apiKey}`;
 
+    localStorage.setItem('ThisCity', searchBtn.previousElementSibling.value)
+
     event.preventDefault()
 
     fetch(url)
@@ -91,13 +93,11 @@ function isSearchButtonHandler(event) {
 
 // Добавление в избранное
 
+
+let FavoriteCity = ['Moscow'];
+
+
 let counter = 1;
-
-const deleteButton = document.querySelector('.delete');
-const cityLikeName = document.querySelector('.cityLikeName')
-deleteButton.addEventListener('click', isButtonDeleteHandler);
-cityLikeName.addEventListener('click', isLikeToNow)
-
 
 function isLikeButtonHandler(event) {
 
@@ -110,20 +110,25 @@ function isLikeButtonHandler(event) {
 
     for (elem of locationDiv) {
         if (elem.firstElementChild.textContent === isNameThisCity) {
-            console.log(elem.firstElementChild.textContent)
             alert('Данный город уже присутствует в избранном!');
             return;
             break;
         }
     }
 
+
+    FavoriteCity.push(isNameThisCity);
+
+
+    localStorage.setItem('FavoriteCity', JSON.stringify(FavoriteCity))
+    localStorage.setItem('ThisCity', searchBtn.previousElementSibling.value)
+
     likeButton.style.backgroundImage = 'url(../Style/ShapeLike.svg)'
 
-    console.log(elem.firstElementChild.textContent)
     const div = document.createElement('div');
     div.classList.add('cityLike');
-    div.id = counter;            counter = ++counter;
-
+    div.id = counter;
+    counter = ++counter;
     const h2 = document.createElement('h2');
     h2.textContent = isNameThisCity;
     h2.addEventListener('click', isLikeToNow);
@@ -136,6 +141,31 @@ function isLikeButtonHandler(event) {
 
     location.append(div);
 
+
+}
+
+function addFavorite(item) {
+
+    const location = document.querySelector('.locations');
+    const div = document.createElement('div');
+    div.classList.add('cityLike');
+    div.id = counter;
+    counter = ++counter;
+    const h2 = document.createElement('h2');
+    h2.textContent = item;
+    h2.addEventListener('click', isLikeToNow);
+    div.append(h2);
+
+    const button = document.createElement('button');
+    button.classList.add('delete');
+    button.addEventListener('click', isButtonDeleteHandler)
+    div.append(button);
+
+    location.append(div);
+
+    localStorage.setItem('FavoriteCity', JSON.stringify(FavoriteCity))
+
+    localStorage.setItem('ThisCity', searchBtn.previousElementSibling.value)
 }
 
 // Удаление из избранного
@@ -145,6 +175,11 @@ function isButtonDeleteHandler() {
     if (nameThisCity.textContent === this.previousElementSibling.textContent) {
         likeButton.style.backgroundImage = 'url(../Style/Shape.svg)'
     }
+
+    const ThisFavoriteCity = FavoriteCity.indexOf(this.previousElementSibling.textContent, 0);
+    FavoriteCity.splice(ThisFavoriteCity, 1)
+
+    localStorage.setItem('FavoriteCity', JSON.stringify(FavoriteCity))
 
     this.parentElement.remove()
 
@@ -163,6 +198,13 @@ function isLikeToNow() {
 
 }
 
+window.onload = function() {
+    FavoriteCity = JSON.parse(localStorage.getItem('FavoriteCity'));
+    searchBtn.previousElementSibling.value = localStorage.getItem('ThisCity');
+    FavoriteCity.forEach((item) => { addFavorite(item); })
+    isSearchButtonHandler(event);
+
+}
 
 
 
