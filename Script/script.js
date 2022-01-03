@@ -62,13 +62,46 @@ function isSearchButtonHandler(event) {
     fetch(url)
         .then(response => response.json())
         .then(inf => {
-            let temp = inf.main.temp-273.15;
-            thisTemp.innerHTML = `${Math.floor(temp)} &deg`;
-            thisCity.textContent = cityName;
-    });
+            if (inf.cod === 200) {
+                let temp = inf.main.temp-273.15;
+                thisTemp.innerHTML = `${Math.floor(temp)} &deg`;
+                thisCity.textContent = cityName;
+            } else {
+                alert(inf.message)
+            }
+    })
+    .catch(err => alert(err));
 }
 
 
+// Добавление в избранное
+
+const counter = 2;
+
+const likeButton = document.querySelector('.like');
+likeButton.addEventListener('click', isLikeButtonHandler);
+
+
+// TODO Написать h2 button стили id к locations div
+
+function isLikeButtonHandler(event) {
+
+    event.preventDefault()
+
+    const location = document.querySelector('.locations');
+    const nameThisCity = document.querySelector('.thisCity');
+    const isNameThisCity = nameThisCity.textContent;
+
+
+    const div = document.createElement('div');
+    div.classList.add('cityLike');
+    div.textContent = isNameThisCity;
+    location.append(div);
+
+
+    counter = ++counter;
+
+}
 
 
 

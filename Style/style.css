@@ -55,6 +55,7 @@ main {
     font-size: 18px;
     line-height: 21px;
     color: gray;
+
 }
 
 .search form {
@@ -201,7 +202,7 @@ h1{
     padding: 20px;
 }
 
-h2{
+.thisCity {
     margin-left: 12px;
     font-family: Roboto;
     font-style: normal;
@@ -215,6 +216,33 @@ h2{
 .city-like {
     position: relative;
     margin-top: 80px;
+}
+
+.cityLike {
+    display: flex;
+    width: 280px;
+    height: 30px;
+    margin-top: 35px;
+    margin-left: 18px;
+}
+
+.cityLike h2{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin: 0;
+    vertical-align: center;
+}
+
+.delete {
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin: auto;
+    margin-right: 17px;
+    background: url(../Style/cross.svg) no-repeat;
+    background-size: cover;
 }
 
 .like {
