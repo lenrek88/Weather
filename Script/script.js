@@ -74,6 +74,34 @@ function isSearchButtonHandler(event) {
 }
 
 
+// Добавление в избранное
+
+const counter = 2;
+
+const likeButton = document.querySelector('.like');
+likeButton.addEventListener('click', isLikeButtonHandler);
+
+
+// TODO Написать h2 button стили id к locations div
+
+function isLikeButtonHandler(event) {
+
+    event.preventDefault()
+
+    const location = document.querySelector('.locations');
+    const nameThisCity = document.querySelector('.thisCity');
+    const isNameThisCity = nameThisCity.textContent;
+
+
+    const div = document.createElement('div');
+    div.classList.add('cityLike');
+    div.textContent = isNameThisCity;
+    location.append(div);
+
+
+    counter = ++counter;
+
+}
 
 
 
